@@ -3,13 +3,13 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * File: rtmodel.h
+ * File: rtGetNaN.h
  *
- * Code generated for Simulink model 'accsubsystem_1'.
+ * Code generated for Simulink model 'accsubsystem'.
  *
  * Model version                  : 1.0
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Sat Jun 27 22:46:45 2026
+ * C/C++ source code generated on : Sat Jun 27 22:55:04 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-A (64-bit)
@@ -17,15 +17,15 @@
  * Validation result: Not run
  */
 
-#ifndef rtmodel_h_
-#define rtmodel_h_
-#include "accsubsystem_1.h"
+#ifndef rtGetNaN_h_
+#define rtGetNaN_h_
+#include "rt_nonfinite.h"
+#include "rtwtypes.h"
 
-/* Macros generated for backwards compatibility  */
-#ifndef rtmGetStopRequested
-#define rtmGetStopRequested(rtm)       ((void*) 0)
-#endif
-#endif                                 /* rtmodel_h_ */
+extern real_T rtGetNaN(void);
+extern real32_T rtGetNaNF(void);
+
+#endif                                 /* rtGetNaN_h_ */
 
 /*
  * File trailer for generated code.

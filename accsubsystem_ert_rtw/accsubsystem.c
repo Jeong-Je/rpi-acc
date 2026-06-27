@@ -3,13 +3,13 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * File: accsubsystem_1.c
+ * File: accsubsystem.c
  *
- * Code generated for Simulink model 'accsubsystem_1'.
+ * Code generated for Simulink model 'accsubsystem'.
  *
  * Model version                  : 1.0
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Sat Jun 27 22:46:45 2026
+ * C/C++ source code generated on : Sat Jun 27 22:55:04 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-A (64-bit)
@@ -17,49 +17,49 @@
  * Validation result: Not run
  */
 
-#include "accsubsystem_1.h"
+#include "accsubsystem.h"
 #include "rtwtypes.h"
-#include "accsubsystem_1_private.h"
+#include "accsubsystem_private.h"
 #include <string.h>
 #include <math.h>
 #include "rt_nonfinite.h"
 
 /* Named constants for MATLAB Function: '<S33>/optimizer' */
-#define accsubsystem_1_RMDscale        (2.8490028490028494)
-#define accsubsystem_1_RMVscale        (1.25)
-#define accsubsystem_1_degrees         (4)
-#define accsubsystem_1_p               (30)
+#define accsubsystem_RMDscale          (2.8490028490028494)
+#define accsubsystem_RMVscale          (1.25)
+#define accsubsystem_degrees           (4)
+#define accsubsystem_p                 (30)
 
 /* Block states (default storage) */
-DW_accsubsystem_1_T accsubsystem_1_DW;
+DW_accsubsystem_T accsubsystem_DW;
 
 /* External inputs (root inport signals with default storage) */
-ExtU_accsubsystem_1_T accsubsystem_1_U;
+ExtU_accsubsystem_T accsubsystem_U;
 
 /* External outputs (root outports fed by signals with default storage) */
-ExtY_accsubsystem_1_T accsubsystem_1_Y;
+ExtY_accsubsystem_T accsubsystem_Y;
 
 /* Real-time model */
-static RT_MODEL_accsubsystem_1_T accsubsystem_1_M_;
-RT_MODEL_accsubsystem_1_T *const accsubsystem_1_M = &accsubsystem_1_M_;
+static RT_MODEL_accsubsystem_T accsubsystem_M_;
+RT_MODEL_accsubsystem_T *const accsubsystem_M = &accsubsystem_M_;
 
 /* Forward declaration for local functions */
-static real_T accsubsystem_1_norm(const real_T x[4]);
-static real_T accsubsystem_1_maximum(const real_T x[4]);
-static real_T accsubsystem_1_xnrm2(int32_T n, const real_T x[16], int32_T ix0);
-static void accsubsystem_1_xgemv(int32_T b_m, int32_T n, const real_T b_A[16],
+static real_T accsubsystem_norm(const real_T x[4]);
+static real_T accsubsystem_maximum(const real_T x[4]);
+static real_T accsubsystem_xnrm2(int32_T n, const real_T x[16], int32_T ix0);
+static void accsubsystem_xgemv(int32_T b_m, int32_T n, const real_T b_A[16],
   int32_T ia0, const real_T x[16], int32_T ix0, real_T y[4]);
-static void accsubsystem_1_xgerc(int32_T b_m, int32_T n, real_T alpha1, int32_T
+static void accsubsystem_xgerc(int32_T b_m, int32_T n, real_T alpha1, int32_T
   ix0, const real_T y[4], real_T b_A[16], int32_T ia0);
-static real_T accsubsystem_1_KWIKfactor(const real_T b_Ac[384], const int32_T
-  iC[96], int32_T nA, const real_T b_Linv[16], real_T RLinv[16], real_T D[16],
+static real_T accsubsystem_KWIKfactor(const real_T b_Ac[384], const int32_T iC
+  [96], int32_T nA, const real_T b_Linv[16], real_T RLinv[16], real_T D[16],
   real_T b_H[16], int32_T n);
-static void accsubsystem_1_DropConstraint(int32_T kDrop, boolean_T iA[96],
-  int32_T *nA, int32_T iC[96]);
-static void accsubsystem_1_qpkwik(const real_T b_Linv[16], const real_T b_Hinv
-  [16], const real_T f[4], const real_T b_Ac[384], const real_T b[96], boolean_T
-  iA[96], int32_T maxiter, real_T FeasTol, real_T x[4], real_T lambda[96],
-  int32_T *status);
+static void accsubsystem_DropConstraint(int32_T kDrop, boolean_T iA[96], int32_T
+  *nA, int32_T iC[96]);
+static void accsubsystem_qpkwik(const real_T b_Linv[16], const real_T b_Hinv[16],
+  const real_T f[4], const real_T b_Ac[384], const real_T b[96], boolean_T iA[96],
+  int32_T maxiter, real_T FeasTol, real_T x[4], real_T lambda[96], int32_T
+  *status);
 
 /*
  * Output and update for atomic system:
@@ -92,7 +92,7 @@ real_T rt_roundd_snf(real_T u)
 }
 
 /* Function for MATLAB Function: '<S33>/optimizer' */
-static real_T accsubsystem_1_norm(const real_T x[4])
+static real_T accsubsystem_norm(const real_T x[4])
 {
   real_T absxk;
   real_T scale;
@@ -162,7 +162,7 @@ static real_T accsubsystem_1_norm(const real_T x[4])
 }
 
 /* Function for MATLAB Function: '<S33>/optimizer' */
-static real_T accsubsystem_1_maximum(const real_T x[4])
+static real_T accsubsystem_maximum(const real_T x[4])
 {
   real_T ex;
   real_T x_0;
@@ -201,7 +201,7 @@ static real_T accsubsystem_1_maximum(const real_T x[4])
 }
 
 /* Function for MATLAB Function: '<S33>/optimizer' */
-static real_T accsubsystem_1_xnrm2(int32_T n, const real_T x[16], int32_T ix0)
+static real_T accsubsystem_xnrm2(int32_T n, const real_T x[16], int32_T ix0)
 {
   real_T absxk;
   real_T scale;
@@ -275,7 +275,7 @@ real_T rt_hypotd_snf(real_T u0, real_T u1)
 }
 
 /* Function for MATLAB Function: '<S33>/optimizer' */
-static void accsubsystem_1_xgemv(int32_T b_m, int32_T n, const real_T b_A[16],
+static void accsubsystem_xgemv(int32_T b_m, int32_T n, const real_T b_A[16],
   int32_T ia0, const real_T x[16], int32_T ix0, real_T y[4])
 {
   real_T c;
@@ -303,7 +303,7 @@ static void accsubsystem_1_xgemv(int32_T b_m, int32_T n, const real_T b_A[16],
 }
 
 /* Function for MATLAB Function: '<S33>/optimizer' */
-static void accsubsystem_1_xgerc(int32_T b_m, int32_T n, real_T alpha1, int32_T
+static void accsubsystem_xgerc(int32_T b_m, int32_T n, real_T alpha1, int32_T
   ix0, const real_T y[4], real_T b_A[16], int32_T ia0)
 {
   real_T temp;
@@ -329,8 +329,8 @@ static void accsubsystem_1_xgerc(int32_T b_m, int32_T n, real_T alpha1, int32_T
 }
 
 /* Function for MATLAB Function: '<S33>/optimizer' */
-static real_T accsubsystem_1_KWIKfactor(const real_T b_Ac[384], const int32_T
-  iC[96], int32_T nA, const real_T b_Linv[16], real_T RLinv[16], real_T D[16],
+static real_T accsubsystem_KWIKfactor(const real_T b_Ac[384], const int32_T iC
+  [96], int32_T nA, const real_T b_Linv[16], real_T RLinv[16], real_T D[16],
   real_T b_H[16], int32_T n)
 {
   real_T Q[16];
@@ -388,7 +388,7 @@ static real_T accsubsystem_1_KWIKfactor(const real_T b_Ac[384], const int32_T
       RLinv_0 = b_A[ii];
       b_lastv = ii + 2;
       tau[k_i] = 0.0;
-      xnorm = accsubsystem_1_xnrm2(3 - k_i, b_A, ii + 2);
+      xnorm = accsubsystem_xnrm2(3 - k_i, b_A, ii + 2);
       if (xnorm != 0.0) {
         xnorm = rt_hypotd_snf(b_A[ii], xnorm);
         if (b_A[ii] >= 0.0) {
@@ -408,8 +408,7 @@ static real_T accsubsystem_1_KWIKfactor(const real_T b_Ac[384], const int32_T
             RLinv_0 *= 9.9792015476736E+291;
           } while ((fabs(xnorm) < 1.0020841800044864E-292) && (knt < 20));
 
-          xnorm = rt_hypotd_snf(RLinv_0, accsubsystem_1_xnrm2(3 - k_i, b_A, ii +
-            2));
+          xnorm = rt_hypotd_snf(RLinv_0, accsubsystem_xnrm2(3 - k_i, b_A, ii + 2));
           if (RLinv_0 >= 0.0) {
             xnorm = -xnorm;
           }
@@ -477,9 +476,9 @@ static real_T accsubsystem_1_KWIKfactor(const real_T b_Ac[384], const int32_T
       }
 
       if (b_lastv > 0) {
-        accsubsystem_1_xgemv(b_lastv, c_lastc, b_A, ii + 5, b_A, ii + 1, work);
-        accsubsystem_1_xgerc(b_lastv, c_lastc, -tau[k_i], ii + 1, work, b_A, ii
-                             + 5);
+        accsubsystem_xgemv(b_lastv, c_lastc, b_A, ii + 5, b_A, ii + 1, work);
+        accsubsystem_xgerc(b_lastv, c_lastc, -tau[k_i], ii + 1, work, b_A, ii +
+                           5);
       }
 
       b_A[ii] = xnorm;
@@ -542,9 +541,9 @@ static real_T accsubsystem_1_KWIKfactor(const real_T b_Ac[384], const int32_T
       }
 
       if (b_lastv > 0) {
-        accsubsystem_1_xgemv(b_lastv, c_lastc, b_A, ii + 5, b_A, ii + 1, work);
-        accsubsystem_1_xgerc(b_lastv, c_lastc, -tau[k_i], ii + 1, work, b_A, ii
-                             + 5);
+        accsubsystem_xgemv(b_lastv, c_lastc, b_A, ii + 5, b_A, ii + 1, work);
+        accsubsystem_xgerc(b_lastv, c_lastc, -tau[k_i], ii + 1, work, b_A, ii +
+                           5);
       }
 
       c_lastc = (ii - k_i) + 4;
@@ -642,8 +641,8 @@ static real_T accsubsystem_1_KWIKfactor(const real_T b_Ac[384], const int32_T
 }
 
 /* Function for MATLAB Function: '<S33>/optimizer' */
-static void accsubsystem_1_DropConstraint(int32_T kDrop, boolean_T iA[96],
-  int32_T *nA, int32_T iC[96])
+static void accsubsystem_DropConstraint(int32_T kDrop, boolean_T iA[96], int32_T
+  *nA, int32_T iC[96])
 {
   int32_T i;
   if (kDrop > 0) {
@@ -660,10 +659,10 @@ static void accsubsystem_1_DropConstraint(int32_T kDrop, boolean_T iA[96],
 }
 
 /* Function for MATLAB Function: '<S33>/optimizer' */
-static void accsubsystem_1_qpkwik(const real_T b_Linv[16], const real_T b_Hinv
-  [16], const real_T f[4], const real_T b_Ac[384], const real_T b[96], boolean_T
-  iA[96], int32_T maxiter, real_T FeasTol, real_T x[4], real_T lambda[96],
-  int32_T *status)
+static void accsubsystem_qpkwik(const real_T b_Linv[16], const real_T b_Hinv[16],
+  const real_T f[4], const real_T b_Ac[384], const real_T b[96], boolean_T iA[96],
+  int32_T maxiter, real_T FeasTol, real_T x[4], real_T lambda[96], int32_T
+  *status)
 {
   real_T cTol[96];
   real_T D[16];
@@ -746,8 +745,8 @@ static void accsubsystem_1_qpkwik(const real_T b_Linv[16], const real_T b_Hinv
     do {
       exitg3 = 0;
       if (!DualFeasible && (nA > 0) && (*status <= maxiter)) {
-        Xnorm0 = accsubsystem_1_KWIKfactor(b_Ac, iC, nA, b_Linv, RLinv, D, b_H,
-          accsubsystem_1_degrees);
+        Xnorm0 = accsubsystem_KWIKfactor(b_Ac, iC, nA, b_Linv, RLinv, D, b_H,
+          accsubsystem_degrees);
         if (Xnorm0 < 0.0) {
           if (ColdReset) {
             *status = -2;
@@ -820,7 +819,7 @@ static void accsubsystem_1_qpkwik(const real_T b_Linv[16], const real_T b_Hinv
               ColdReset = true;
             } else {
               lambda[iC[i] - 1] = 0.0;
-              accsubsystem_1_DropConstraint(i + 1, iA, &nA, iC);
+              accsubsystem_DropConstraint(i + 1, iA, &nA, iC);
             }
           }
         }
@@ -858,7 +857,7 @@ static void accsubsystem_1_qpkwik(const real_T b_Linv[16], const real_T b_Hinv
   }
 
   if (guard1) {
-    Xnorm0 = accsubsystem_1_norm(x);
+    Xnorm0 = accsubsystem_norm(x);
     exitg2 = false;
     while (!exitg2 && (*status <= maxiter)) {
       cMin = -FeasTol;
@@ -869,7 +868,7 @@ static void accsubsystem_1_qpkwik(const real_T b_Linv[16], const real_T b_Hinv
           b_x[1] = fabs(b_Ac[i + 96] * x[1]);
           b_x[2] = fabs(b_Ac[i + 192] * x[2]);
           b_x[3] = fabs(b_Ac[i + 288] * x[3]);
-          cVal = accsubsystem_1_maximum(b_x);
+          cVal = accsubsystem_maximum(b_x);
           if ((cTol[i] >= cVal) || rtIsNaN(cVal)) {
           } else {
             cTol[i] = cVal;
@@ -913,8 +912,8 @@ static void accsubsystem_1_qpkwik(const real_T b_Linv[16], const real_T b_Hinv
 
               guard2 = true;
             } else {
-              cMin = accsubsystem_1_KWIKfactor(b_Ac, iC, nA, b_Linv, RLinv, D,
-                b_H, accsubsystem_1_degrees);
+              cMin = accsubsystem_KWIKfactor(b_Ac, iC, nA, b_Linv, RLinv, D, b_H,
+                accsubsystem_degrees);
               if (cMin <= 0.0) {
                 *status = -2;
                 exitg1 = 1;
@@ -1022,7 +1021,7 @@ static void accsubsystem_1_qpkwik(const real_T b_Linv[16], const real_T b_Hinv
                 lambda[tmp] += t;
                 frexp(1.0, &exponent);
                 if (fabs(t - t1) < 2.220446049250313E-16) {
-                  accsubsystem_1_DropConstraint(i, iA, &nA, iC);
+                  accsubsystem_DropConstraint(i, iA, &nA, iC);
                 }
 
                 if (!ColdReset) {
@@ -1032,7 +1031,7 @@ static void accsubsystem_1_qpkwik(const real_T b_Linv[16], const real_T b_Hinv
                   x[3] += t * z_idx_3;
                   frexp(1.0, &b_exponent);
                   if (fabs(t - rVal) < 2.220446049250313E-16) {
-                    if (nA == accsubsystem_1_degrees) {
+                    if (nA == accsubsystem_degrees) {
                       *status = -1;
                       exitg1 = 1;
                     } else {
@@ -1065,7 +1064,7 @@ static void accsubsystem_1_qpkwik(const real_T b_Linv[16], const real_T b_Hinv
               }
             }
           } else {
-            cMin = accsubsystem_1_norm(x);
+            cMin = accsubsystem_norm(x);
             if (fabs(cMin - Xnorm0) > 0.001) {
               Xnorm0 = cMin;
               for (tmp = 0; tmp < 96; tmp++) {
@@ -1093,7 +1092,7 @@ static void accsubsystem_1_qpkwik(const real_T b_Linv[16], const real_T b_Hinv
 }
 
 /* Model step function */
-void accsubsystem_1_step(void)
+void accsubsystem_step(void)
 {
   real_T Bc[96];
   real_T b_Mv[96];
@@ -2191,43 +2190,43 @@ void accsubsystem_1_step(void)
   /* MATLAB Function: '<S1>/DataTypeConversion_reldist' incorporates:
    *  Inport: '<Root>/Relative distance'
    */
-  accsubsys_DataTypeConversion_L0(accsubsystem_1_U.relativedistance, &rtb_y_n);
+  accsubsys_DataTypeConversion_L0(accsubsystem_U.relativedistance, &rtb_y_n);
 
   /* MATLAB Function: '<S1>/DataTypeConversion_vego' incorporates:
    *  Inport: '<Root>/Longitudinal velocity'
    */
-  accsubsys_DataTypeConversion_L0(accsubsystem_1_U.ego_velocity, &rtb_y_gf);
+  accsubsys_DataTypeConversion_L0(accsubsystem_U.ego_velocity, &rtb_y_gf);
 
   /* MATLAB Function: '<S1>/DataTypeConversion_L0' incorporates:
    *  Constant: '<S1>/Default spacing constant'
    */
-  accsubsys_DataTypeConversion_L0(accsubsystem_1_P.Defaultspacingconstant_Value,
+  accsubsys_DataTypeConversion_L0(accsubsystem_P.Defaultspacingconstant_Value,
     &rtb_y_j);
 
   /* MATLAB Function: '<S1>/DataTypeConversion_vset' incorporates:
    *  Inport: '<Root>/Set velocity'
    */
-  accsubsys_DataTypeConversion_L0(accsubsystem_1_U.set_velocity, &rtb_y);
+  accsubsys_DataTypeConversion_L0(accsubsystem_U.set_velocity, &rtb_y);
 
   /* MATLAB Function: '<S1>/DataTypeConversion_vlead' incorporates:
    *  Inport: '<Root>/Longitudinal velocity'
    *  Inport: '<Root>/Relative velocity'
    *  Sum: '<S1>/Sum6'
    */
-  accsubsys_DataTypeConversion_L0(accsubsystem_1_U.ego_velocity +
-    accsubsystem_1_U.relative_velocity, &rtb_y_cs);
+  accsubsys_DataTypeConversion_L0(accsubsystem_U.ego_velocity +
+    accsubsystem_U.relative_velocity, &rtb_y_cs);
 
   /* MATLAB Function: '<S1>/DataTypeConversion_amin' incorporates:
    *  Constant: '<S1>/Minimum longitudinal acceleration constant'
    */
-  accsubsys_DataTypeConversion_L0
-    (accsubsystem_1_P.Minimumlongitudinalacceleration, &rtb_y_e);
+  accsubsys_DataTypeConversion_L0(accsubsystem_P.Minimumlongitudinalacceleration,
+    &rtb_y_e);
 
   /* MATLAB Function: '<S1>/DataTypeConversion_amax' incorporates:
    *  Constant: '<S1>/Maximum longitudinal acceleration constant'
    */
-  accsubsys_DataTypeConversion_L0
-    (accsubsystem_1_P.Maximumlongitudinalacceleration, &rtb_y_fb);
+  accsubsys_DataTypeConversion_L0(accsubsystem_P.Maximumlongitudinalacceleration,
+    &rtb_y_fb);
 
   /* SignalConversion generated from: '<S34>/ SFunction ' incorporates:
    *  Constant: '<S1>/Default spacing constant'
@@ -2239,20 +2238,20 @@ void accsubsystem_1_step(void)
    *  Product: '<S1>/Product2'
    *  Sum: '<S1>/Sum1'
    */
-  accsubsys_DataTypeConversion_L0(accsubsystem_1_P.Defaultspacingconstant_Value
-    + accsubsystem_1_U.ego_velocity * accsubsystem_1_U.Timegap,
+  accsubsys_DataTypeConversion_L0(accsubsystem_P.Defaultspacingconstant_Value +
+    accsubsystem_U.ego_velocity * accsubsystem_U.Timegap,
     &rtb_TmpSignalConversionAtSFun_i[0]);
   rtb_TmpSignalConversionAtSFun_i[1] =
-    accsubsystem_1_P.Minimumvelocityconstant_Value;
+    accsubsystem_P.Minimumvelocityconstant_Value;
 
   /* SignalConversion generated from: '<S34>/ SFunction ' incorporates:
    *  Constant: '<S1>/Maximum velocity constant'
    *  Constant: '<S1>/Unconstrained'
    *  MATLAB Function: '<S33>/optimizer'
    */
-  rtb_TmpSignalConversionAtSFun_g[0] = accsubsystem_1_P.Unconstrained_Value;
+  rtb_TmpSignalConversionAtSFun_g[0] = accsubsystem_P.Unconstrained_Value;
   rtb_TmpSignalConversionAtSFun_g[1] =
-    accsubsystem_1_P.Maximumvelocityconstant_Value;
+    accsubsystem_P.Maximumvelocityconstant_Value;
 
   /* MATLAB Function: '<S33>/optimizer' incorporates:
    *  Constant: '<S1>/Enable optimization constant'
@@ -2274,15 +2273,15 @@ void accsubsystem_1_step(void)
   }
 
   for (i = 0; i < 31; i++) {
-    vseq[i << 1] = accsubsystem_1_RMDscale * rtb_y_cs;
+    vseq[i << 1] = accsubsystem_RMDscale * rtb_y_cs;
   }
 
   rtb_TmpSignalConversionAtSFun_d[0] = vseq[0];
   rtb_TmpSignalConversionAtSFun_d[1] = vseq[1];
-  xk[0] = accsubsystem_1_DW.last_x_PreviousInput[0];
-  xk[1] = accsubsystem_1_DW.last_x_PreviousInput[1];
-  xk[2] = accsubsystem_1_DW.last_x_PreviousInput[2];
-  xk[3] = accsubsystem_1_DW.last_x_PreviousInput[3];
+  xk[0] = accsubsystem_DW.last_x_PreviousInput[0];
+  xk[1] = accsubsystem_DW.last_x_PreviousInput[1];
+  xk[2] = accsubsystem_DW.last_x_PreviousInput[2];
+  xk[3] = accsubsystem_DW.last_x_PreviousInput[3];
   rtb_y_cs = 0.0;
   rtb_y = 0.0;
   for (i = 0; i < 4; i++) {
@@ -2301,8 +2300,8 @@ void accsubsystem_1_step(void)
   }
 
   memset(&rtb_iAout[0], 0, 96U * sizeof(boolean_T));
-  if (!(accsubsystem_1_P.Enableoptimizationconstant_Valu > 0.0) &&
-      !(accsubsystem_1_P.Enableoptimizationconstant_Valu < 0.0)) {
+  if (!(accsubsystem_P.Enableoptimizationconstant_Valu > 0.0) &&
+      !(accsubsystem_P.Enableoptimizationconstant_Valu < 0.0)) {
     rtb_y_j = rtb_xest[1];
     rtb_y = rtb_xest[0];
     rtb_y_cs = rtb_xest[2];
@@ -2310,7 +2309,7 @@ void accsubsystem_1_step(void)
     for (i = 0; i < 96; i++) {
       b_Mx[i] = ((((b_Mx_0[i + 96] * rtb_y_j + b_Mx_0[i] * rtb_y) + b_Mx_0[i +
                    192] * rtb_y_cs) + b_Mx_0[i + 288] * rtb_xest_0) + b_Mlim[i])
-        + b_Mu1[i] * accsubsystem_1_DW.last_mv_DSTATE;
+        + b_Mu1[i] * accsubsystem_DW.last_mv_DSTATE;
       b_Mv[i] = 0.0;
     }
 
@@ -2369,14 +2368,14 @@ void accsubsystem_1_step(void)
         Bc[i] = rtb_y_cs + rtb_xest_0;
       } else if (b_Mrows <= 150) {
         if (!umax_incr_flag) {
-          rtb_y_j = -(accsubsystem_1_RMVscale * rtb_y_fb) - (-b_Mlim[i]);
+          rtb_y_j = -(accsubsystem_RMVscale * rtb_y_fb) - (-b_Mlim[i]);
           umax_incr_flag = true;
         }
 
         Bc[i] = rtb_y_cs + rtb_y_j;
       } else {
         if (!umin_incr_flag) {
-          rtb_y = accsubsystem_1_RMVscale * rtb_y_e - (-b_Mlim[i]);
+          rtb_y = accsubsystem_RMVscale * rtb_y_e - (-b_Mlim[i]);
           umin_incr_flag = true;
         }
 
@@ -2402,43 +2401,43 @@ void accsubsystem_1_step(void)
       i = ii << 2;
       f[ii] = (((((b_Kx[i + 1] * rtb_xest[1] + b_Kx[i] * rtb_xest[0]) + b_Kx[i +
                   2] * rtb_xest[2]) + b_Kx[i + 3] * rtb_xest[3]) + rtb_y_e) +
-               b_Ku1[ii] * accsubsystem_1_DW.last_mv_DSTATE) + rtb_y_fb;
+               b_Ku1[ii] * accsubsystem_DW.last_mv_DSTATE) + rtb_y_fb;
     }
 
-    memcpy(&rtb_iAout[0], &accsubsystem_1_DW.Memory_PreviousInput[0], 96U *
-           sizeof(boolean_T));
-    accsubsystem_1_qpkwik(b_Linv, b_Hinv, f, b_Ac, Bc, rtb_iAout, 400, 1.0E-6,
-                          rtb_xest, b_Mx, &i);
+    memcpy(&rtb_iAout[0], &accsubsystem_DW.Memory_PreviousInput[0], 96U * sizeof
+           (boolean_T));
+    accsubsystem_qpkwik(b_Linv, b_Hinv, f, b_Ac, Bc, rtb_iAout, 400, 1.0E-6,
+                        rtb_xest, b_Mx, &i);
     if ((i < 0) || (i == 0)) {
       rtb_xest[0] = 0.0;
     }
 
-    accsubsystem_1_DW.last_mv_DSTATE += rtb_xest[0];
+    accsubsystem_DW.last_mv_DSTATE += rtb_xest[0];
   }
 
   /* Outport: '<Root>/Longitudinal acceleration' incorporates:
    *  Gain: '<S13>/umin_scale1'
    *  MATLAB Function: '<S33>/optimizer'
    */
-  accsubsystem_1_Y.Longitudinalacceleration = accsubsystem_1_P.umin_scale1_Gain *
-    accsubsystem_1_DW.last_mv_DSTATE;
+  accsubsystem_Y.Longitudinalacceleration = accsubsystem_P.umin_scale1_Gain *
+    accsubsystem_DW.last_mv_DSTATE;
 
   /* MATLAB Function: '<S1>/DataTypeConversion_atrack' incorporates:
    *  Constant: '<S1>/External control signal constant'
    */
-  accsubsys_DataTypeConversion_L0
-    (accsubsystem_1_P.Externalcontrolsignalconstant_V, &rtb_y_e);
+  accsubsys_DataTypeConversion_L0(accsubsystem_P.Externalcontrolsignalconstant_V,
+    &rtb_y_e);
 
   /* MATLAB Function: '<S33>/optimizer' incorporates:
    *  Memory: '<S13>/last_x'
    */
-  rtb_y_e = accsubsystem_1_DW.last_x_PreviousInput[1];
-  rtb_y_fb = accsubsystem_1_DW.last_x_PreviousInput[0];
-  rtb_y_j = accsubsystem_1_DW.last_x_PreviousInput[2];
-  rtb_y = accsubsystem_1_DW.last_x_PreviousInput[3];
+  rtb_y_e = accsubsystem_DW.last_x_PreviousInput[1];
+  rtb_y_fb = accsubsystem_DW.last_x_PreviousInput[0];
+  rtb_y_j = accsubsystem_DW.last_x_PreviousInput[2];
+  rtb_y = accsubsystem_DW.last_x_PreviousInput[3];
   for (i = 0; i < 4; i++) {
     xk[i] = (((c_a[i + 4] * rtb_y_e + c_a[i] * rtb_y_fb) + c_a[i + 8] * rtb_y_j)
-             + c_a[i + 12] * rtb_y) + d_a[i] * accsubsystem_1_DW.last_mv_DSTATE;
+             + c_a[i + 12] * rtb_y) + d_a[i] * accsubsystem_DW.last_mv_DSTATE;
   }
 
   rtb_y_e = 0.0;
@@ -2463,19 +2462,19 @@ void accsubsystem_1_step(void)
    *  MATLAB Function: '<S33>/optimizer'
    */
   for (i = 0; i < 4; i++) {
-    accsubsystem_1_DW.last_x_PreviousInput[i] = (f_a[i + 4] * rtb_y_gf + f_a[i] *
+    accsubsystem_DW.last_x_PreviousInput[i] = (f_a[i + 4] * rtb_y_gf + f_a[i] *
       rtb_y_n) + (xk[i] + rtb_xest[i]);
   }
 
   /* End of Update for Memory: '<S13>/last_x' */
 
   /* Update for Memory: '<S13>/Memory' */
-  memcpy(&accsubsystem_1_DW.Memory_PreviousInput[0], &rtb_iAout[0], 96U * sizeof
+  memcpy(&accsubsystem_DW.Memory_PreviousInput[0], &rtb_iAout[0], 96U * sizeof
          (boolean_T));
 }
 
 /* Model initialize function */
-void accsubsystem_1_initialize(void)
+void accsubsystem_initialize(void)
 {
   /* Registration code */
 
@@ -2483,25 +2482,25 @@ void accsubsystem_1_initialize(void)
   rt_InitInfAndNaN(sizeof(real_T));
 
   /* InitializeConditions for Memory: '<S13>/last_x' */
-  accsubsystem_1_DW.last_x_PreviousInput[0] =
-    accsubsystem_1_P.last_x_InitialCondition[0];
-  accsubsystem_1_DW.last_x_PreviousInput[1] =
-    accsubsystem_1_P.last_x_InitialCondition[1];
-  accsubsystem_1_DW.last_x_PreviousInput[2] =
-    accsubsystem_1_P.last_x_InitialCondition[2];
-  accsubsystem_1_DW.last_x_PreviousInput[3] =
-    accsubsystem_1_P.last_x_InitialCondition[3];
+  accsubsystem_DW.last_x_PreviousInput[0] =
+    accsubsystem_P.last_x_InitialCondition[0];
+  accsubsystem_DW.last_x_PreviousInput[1] =
+    accsubsystem_P.last_x_InitialCondition[1];
+  accsubsystem_DW.last_x_PreviousInput[2] =
+    accsubsystem_P.last_x_InitialCondition[2];
+  accsubsystem_DW.last_x_PreviousInput[3] =
+    accsubsystem_P.last_x_InitialCondition[3];
 
   /* InitializeConditions for UnitDelay: '<S13>/last_mv' */
-  accsubsystem_1_DW.last_mv_DSTATE = accsubsystem_1_P.last_mv_InitialCondition;
+  accsubsystem_DW.last_mv_DSTATE = accsubsystem_P.last_mv_InitialCondition;
 
   /* InitializeConditions for Memory: '<S13>/Memory' */
-  memcpy(&accsubsystem_1_DW.Memory_PreviousInput[0],
-         &accsubsystem_1_P.Memory_InitialCondition[0], 96U * sizeof(boolean_T));
+  memcpy(&accsubsystem_DW.Memory_PreviousInput[0],
+         &accsubsystem_P.Memory_InitialCondition[0], 96U * sizeof(boolean_T));
 }
 
 /* Model terminate function */
-void accsubsystem_1_terminate(void)
+void accsubsystem_terminate(void)
 {
   /* (no terminate code required) */
 }

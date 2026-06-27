@@ -5,11 +5,11 @@
  *
  * File: ert_main.c
  *
- * Code generated for Simulink model 'accsubsystem_1'.
+ * Code generated for Simulink model 'accsubsystem'.
  *
  * Model version                  : 1.0
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Sat Jun 27 22:46:45 2026
+ * C/C++ source code generated on : Sat Jun 27 22:55:04 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-A (64-bit)
@@ -19,8 +19,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "accsubsystem_1.h"
-#include "accsubsystem_1_private.h"
+#include "accsubsystem.h"
+#include "accsubsystem_private.h"
 #include "rtwtypes.h"
 #include "limits.h"
 #include "rt_nonfinite.h"
@@ -46,13 +46,13 @@ void *threadJoinStatus;
 int terminatingmodel = 0;
 void *baseRateTask(void *arg)
 {
-  runModel = (rtmGetErrorStatus(accsubsystem_1_M) == (NULL));
+  runModel = (rtmGetErrorStatus(accsubsystem_M) == (NULL));
   while (runModel) {
     sem_wait(&baserateTaskSem);
-    accsubsystem_1_step();
+    accsubsystem_step();
 
     /* Get model outputs here */
-    stopRequested = !((rtmGetErrorStatus(accsubsystem_1_M) == (NULL)));
+    stopRequested = !((rtmGetErrorStatus(accsubsystem_M) == (NULL)));
   }
 
   runModel = 0;
@@ -64,7 +64,7 @@ void *baseRateTask(void *arg)
 void exitFcn(int sig)
 {
   UNUSED(sig);
-  rtmSetErrorStatus(accsubsystem_1_M, "stopping the model");
+  rtmSetErrorStatus(accsubsystem_M, "stopping the model");
   runModel = 0;
 }
 
@@ -81,7 +81,7 @@ void *terminateTask(void *arg)
   mwRaspiTerminate();
 
   /* Terminate model */
-  accsubsystem_1_terminate();
+  accsubsystem_terminate();
   sem_post(&stopSem);
   return NULL;
 }
@@ -92,14 +92,14 @@ int main(int argc, char **argv)
   UNUSED(argv);
   mwRaspiInit();
   MW_launchPyserver();
-  rtmSetErrorStatus(accsubsystem_1_M, 0);
+  rtmSetErrorStatus(accsubsystem_M, 0);
 
   /* Unused arguments */
   (void)(argc);
   (void)(argv);
 
   /* Initialize model */
-  accsubsystem_1_initialize();
+  accsubsystem_initialize();
 
   /* Call RTOS Initialization function */
   myRTOSInit(0.1, 0);

@@ -1,9 +1,9 @@
 ###########################################################################
-## Makefile generated for component 'accsubsystem_1'. 
+## Makefile generated for component 'accsubsystem'. 
 ## 
-## Makefile     : accsubsystem_1.mk
-## Generated on : Sat Jun 27 22:47:00 2026
-## Final product: $(RELATIVE_PATH_TO_ANCHOR)/accsubsystem_1.elf
+## Makefile     : accsubsystem.mk
+## Generated on : Sat Jun 27 22:55:09 2026
+## Final product: $(RELATIVE_PATH_TO_ANCHOR)/accsubsystem.elf
 ## Product type : executable
 ## 
 ###########################################################################
@@ -16,8 +16,8 @@
 # PRODUCT_NAME            Name of the system to build
 # MAKEFILE                Name of this makefile
 
-PRODUCT_NAME              = accsubsystem_1
-MAKEFILE                  = accsubsystem_1.mk
+PRODUCT_NAME              = accsubsystem
+MAKEFILE                  = accsubsystem.mk
 MATLAB_ROOT               = $(MATLAB_WORKSPACE)/C/Program_Files/MATLAB/R2026a
 MATLAB_BIN                = $(MATLAB_WORKSPACE)/C/Program_Files/MATLAB/R2026a/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
@@ -166,7 +166,7 @@ SHAREDLIB_LDFLAGS    = -shared  \
 ## OUTPUT INFO
 ###########################################################################
 
-PRODUCT = $(RELATIVE_PATH_TO_ANCHOR)/accsubsystem_1.elf
+PRODUCT = $(RELATIVE_PATH_TO_ANCHOR)/accsubsystem.elf
 PRODUCT_TYPE = "executable"
 BUILD_TYPE = "Top-Level Standalone Executable"
 
@@ -174,7 +174,7 @@ BUILD_TYPE = "Top-Level Standalone Executable"
 ## INCLUDE PATHS
 ###########################################################################
 
-INCLUDES_BUILDINFO = -I$(START_DIR) -I$(START_DIR)/accsubsystem_1_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(MATLAB_ROOT)/toolbox/rpib/raspiML/include -I$(MATLAB_ROOT)/toolbox/coder/rtiostream/src/utils -I$(MATLAB_ROOT)/toolbox/target/codertarget/rtos/inc
+INCLUDES_BUILDINFO = -I$(START_DIR) -I$(START_DIR)/accsubsystem_ert_rtw -I$(MATLAB_ROOT)/extern/include -I$(MATLAB_ROOT)/simulink/include -I$(MATLAB_ROOT)/rtw/c/src -I$(MATLAB_ROOT)/rtw/c/src/ext_mode/common -I$(MATLAB_ROOT)/rtw/c/ert -I$(MATLAB_ROOT)/toolbox/rpib/raspiML/include -I$(MATLAB_ROOT)/toolbox/coder/rtiostream/src/utils -I$(MATLAB_ROOT)/toolbox/target/codertarget/rtos/inc
 
 INCLUDES = $(INCLUDES_BUILDINFO)
 
@@ -187,7 +187,7 @@ DEFINES_BUILD_ARGS = -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0 -DTERMFCN=1 -DONEST
 DEFINES_CUSTOM = 
 DEFINES_OPTS = -DTID01EQ=0
 DEFINES_SKIPFORSIL = -D__linux__ -DARM_PROJECT -D_USE_TARGET_UDP_ -D_RUNONTARGETHARDWARE_BUILD_ -DSTACK_SIZE=200000 -DRT
-DEFINES_STANDARD = -DMODEL=accsubsystem_1 -DNUMST=1 -DNCSTATES=0 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0
+DEFINES_STANDARD = -DMODEL=accsubsystem -DNUMST=1 -DNCSTATES=0 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0
 
 DEFINES = $(DEFINES_) $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(DEFINES_SKIPFORSIL) $(DEFINES_STANDARD)
 
@@ -195,9 +195,9 @@ DEFINES = $(DEFINES_) $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/accsubsystem_1_ert_rtw/accsubsystem_1.c $(START_DIR)/accsubsystem_1_ert_rtw/accsubsystem_1_data.c $(START_DIR)/accsubsystem_1_ert_rtw/rtGetInf.c $(START_DIR)/accsubsystem_1_ert_rtw/rtGetNaN.c $(START_DIR)/accsubsystem_1_ert_rtw/rt_nonfinite.c $(MATLAB_ROOT)/toolbox/rpib/raspiML/src/MW_raspi_init.c $(MATLAB_ROOT)/toolbox/rpib/raspiML/src/periphs/MW_Pyserver_control.c $(MATLAB_ROOT)/toolbox/rpib/raspiML/src/linuxtimelogger/linuxTimeLogger.c $(MATLAB_ROOT)/toolbox/target/codertarget/rtos/src/linuxinitialize.c
+SRCS = $(START_DIR)/accsubsystem_ert_rtw/accsubsystem.c $(START_DIR)/accsubsystem_ert_rtw/accsubsystem_data.c $(START_DIR)/accsubsystem_ert_rtw/rtGetInf.c $(START_DIR)/accsubsystem_ert_rtw/rtGetNaN.c $(START_DIR)/accsubsystem_ert_rtw/rt_nonfinite.c $(MATLAB_ROOT)/toolbox/rpib/raspiML/src/MW_raspi_init.c $(MATLAB_ROOT)/toolbox/rpib/raspiML/src/periphs/MW_Pyserver_control.c $(MATLAB_ROOT)/toolbox/rpib/raspiML/src/linuxtimelogger/linuxTimeLogger.c $(MATLAB_ROOT)/toolbox/target/codertarget/rtos/src/linuxinitialize.c
 
-MAIN_SRC = $(START_DIR)/accsubsystem_1_ert_rtw/ert_main.c
+MAIN_SRC = $(START_DIR)/accsubsystem_ert_rtw/ert_main.c
 
 ALL_SRCS = $(SRCS) $(MAIN_SRC)
 
@@ -205,7 +205,7 @@ ALL_SRCS = $(SRCS) $(MAIN_SRC)
 ## OBJECTS
 ###########################################################################
 
-OBJS = accsubsystem_1.c.o accsubsystem_1_data.c.o rtGetInf.c.o rtGetNaN.c.o rt_nonfinite.c.o MW_raspi_init.c.o MW_Pyserver_control.c.o linuxTimeLogger.c.o linuxinitialize.c.o
+OBJS = accsubsystem.c.o accsubsystem_data.c.o rtGetInf.c.o rtGetNaN.c.o rt_nonfinite.c.o MW_raspi_init.c.o MW_Pyserver_control.c.o linuxTimeLogger.c.o linuxinitialize.c.o
 
 MAIN_OBJ = ert_main.c.o
 
@@ -388,15 +388,15 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(LIBS) $(MAIN_OBJ)
 	$(AS) $(ASFLAGS) -o "$@" "$<"
 
 
-%.c.o : $(START_DIR)/accsubsystem_1_ert_rtw/%.c
+%.c.o : $(START_DIR)/accsubsystem_ert_rtw/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.cpp.o : $(START_DIR)/accsubsystem_1_ert_rtw/%.cpp
+%.cpp.o : $(START_DIR)/accsubsystem_ert_rtw/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.s.o : $(START_DIR)/accsubsystem_1_ert_rtw/%.s
+%.s.o : $(START_DIR)/accsubsystem_ert_rtw/%.s
 	$(AS) $(ASFLAGS) -o "$@" "$<"
 
 
@@ -436,27 +436,27 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(LIBS) $(MAIN_OBJ)
 	$(AS) $(ASFLAGS) -o "$@" "$<"
 
 
-ert_main.c.o : $(START_DIR)/accsubsystem_1_ert_rtw/ert_main.c
+ert_main.c.o : $(START_DIR)/accsubsystem_ert_rtw/ert_main.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-accsubsystem_1.c.o : $(START_DIR)/accsubsystem_1_ert_rtw/accsubsystem_1.c
+accsubsystem.c.o : $(START_DIR)/accsubsystem_ert_rtw/accsubsystem.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-accsubsystem_1_data.c.o : $(START_DIR)/accsubsystem_1_ert_rtw/accsubsystem_1_data.c
+accsubsystem_data.c.o : $(START_DIR)/accsubsystem_ert_rtw/accsubsystem_data.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-rtGetInf.c.o : $(START_DIR)/accsubsystem_1_ert_rtw/rtGetInf.c
+rtGetInf.c.o : $(START_DIR)/accsubsystem_ert_rtw/rtGetInf.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-rtGetNaN.c.o : $(START_DIR)/accsubsystem_1_ert_rtw/rtGetNaN.c
+rtGetNaN.c.o : $(START_DIR)/accsubsystem_ert_rtw/rtGetNaN.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-rt_nonfinite.c.o : $(START_DIR)/accsubsystem_1_ert_rtw/rt_nonfinite.c
+rt_nonfinite.c.o : $(START_DIR)/accsubsystem_ert_rtw/rt_nonfinite.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 

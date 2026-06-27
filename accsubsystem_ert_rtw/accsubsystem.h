@@ -3,13 +3,13 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * File: accsubsystem_1.h
+ * File: accsubsystem.h
  *
- * Code generated for Simulink model 'accsubsystem_1'.
+ * Code generated for Simulink model 'accsubsystem'.
  *
  * Model version                  : 1.0
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Sat Jun 27 22:46:45 2026
+ * C/C++ source code generated on : Sat Jun 27 22:55:04 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-A (64-bit)
@@ -17,14 +17,14 @@
  * Validation result: Not run
  */
 
-#ifndef accsubsystem_1_h_
-#define accsubsystem_1_h_
-#ifndef accsubsystem_1_COMMON_INCLUDES_
-#define accsubsystem_1_COMMON_INCLUDES_
+#ifndef accsubsystem_h_
+#define accsubsystem_h_
+#ifndef accsubsystem_COMMON_INCLUDES_
+#define accsubsystem_COMMON_INCLUDES_
 #include "rtwtypes.h"
-#endif                                 /* accsubsystem_1_COMMON_INCLUDES_ */
+#endif                                 /* accsubsystem_COMMON_INCLUDES_ */
 
-#include "accsubsystem_1_types.h"
+#include "accsubsystem_types.h"
 #include "rt_nonfinite.h"
 #include "rtGetInf.h"
 #include "rtGetNaN.h"
@@ -44,7 +44,7 @@ typedef struct {
   real_T last_mv_DSTATE;               /* '<S13>/last_mv' */
   real_T last_x_PreviousInput[4];      /* '<S13>/last_x' */
   boolean_T Memory_PreviousInput[96];  /* '<S13>/Memory' */
-} DW_accsubsystem_1_T;
+} DW_accsubsystem_T;
 
 /* External inputs (root inport signals with default storage) */
 typedef struct {
@@ -53,15 +53,15 @@ typedef struct {
   real_T ego_velocity;                 /* '<Root>/Longitudinal velocity' */
   real_T relativedistance;             /* '<Root>/Relative distance' */
   real_T relative_velocity;            /* '<Root>/Relative velocity' */
-} ExtU_accsubsystem_1_T;
+} ExtU_accsubsystem_T;
 
 /* External outputs (root outports fed by signals with default storage) */
 typedef struct {
   real_T Longitudinalacceleration;     /* '<Root>/Longitudinal acceleration' */
-} ExtY_accsubsystem_1_T;
+} ExtY_accsubsystem_T;
 
 /* Parameters (default storage) */
-struct P_accsubsystem_1_T_ {
+struct P_accsubsystem_T_ {
   real_T last_x_InitialCondition[4];   /* Expression: lastx+xoff
                                         * Referenced by: '<S13>/last_x'
                                         */
@@ -69,28 +69,28 @@ struct P_accsubsystem_1_T_ {
                                         * Referenced by: '<S13>/last_mv'
                                         */
   real_T Defaultspacingconstant_Value;
-                               /* Expression: accsubsystem_1_data.DefaultSpacing
-                                * Referenced by: '<S1>/Default spacing constant'
-                                */
+                                 /* Expression: accsubsystem_data.DefaultSpacing
+                                  * Referenced by: '<S1>/Default spacing constant'
+                                  */
   real_T Minimumlongitudinalacceleration;
-                              /* Expression: accsubsystem_1_data.MinAcceleration
-                               * Referenced by: '<S1>/Minimum longitudinal acceleration constant'
-                               */
+                                /* Expression: accsubsystem_data.MinAcceleration
+                                 * Referenced by: '<S1>/Minimum longitudinal acceleration constant'
+                                 */
   real_T Maximumlongitudinalacceleration;
-                              /* Expression: accsubsystem_1_data.MaxAcceleration
-                               * Referenced by: '<S1>/Maximum longitudinal acceleration constant'
-                               */
+                                /* Expression: accsubsystem_data.MaxAcceleration
+                                 * Referenced by: '<S1>/Maximum longitudinal acceleration constant'
+                                 */
   real_T Minimumvelocityconstant_Value;
-                                  /* Expression: accsubsystem_1_data.MinVelocity
-                                   * Referenced by: '<S1>/Minimum velocity constant'
-                                   */
+                                    /* Expression: accsubsystem_data.MinVelocity
+                                     * Referenced by: '<S1>/Minimum velocity constant'
+                                     */
   real_T Unconstrained_Value;          /* Expression: 0
                                         * Referenced by: '<S1>/Unconstrained'
                                         */
   real_T Maximumvelocityconstant_Value;
-                                  /* Expression: accsubsystem_1_data.MaxVelocity
-                                   * Referenced by: '<S1>/Maximum velocity constant'
-                                   */
+                                    /* Expression: accsubsystem_data.MaxVelocity
+                                     * Referenced by: '<S1>/Maximum velocity constant'
+                                     */
   real_T E_zero_Value;                 /* Expression: zeros(1,1)
                                         * Referenced by: '<S12>/E_zero'
                                         */
@@ -151,29 +151,29 @@ struct P_accsubsystem_1_T_ {
 };
 
 /* Real-time Model Data Structure */
-struct tag_RTM_accsubsystem_1_T {
+struct tag_RTM_accsubsystem_T {
   const char_T * volatile errorStatus;
 };
 
 /* Block parameters (default storage) */
-extern P_accsubsystem_1_T accsubsystem_1_P;
+extern P_accsubsystem_T accsubsystem_P;
 
 /* Block states (default storage) */
-extern DW_accsubsystem_1_T accsubsystem_1_DW;
+extern DW_accsubsystem_T accsubsystem_DW;
 
 /* External inputs (root inport signals with default storage) */
-extern ExtU_accsubsystem_1_T accsubsystem_1_U;
+extern ExtU_accsubsystem_T accsubsystem_U;
 
 /* External outputs (root outports fed by signals with default storage) */
-extern ExtY_accsubsystem_1_T accsubsystem_1_Y;
+extern ExtY_accsubsystem_T accsubsystem_Y;
 
 /* Model entry point functions */
-extern void accsubsystem_1_initialize(void);
-extern void accsubsystem_1_step(void);
-extern void accsubsystem_1_terminate(void);
+extern void accsubsystem_initialize(void);
+extern void accsubsystem_step(void);
+extern void accsubsystem_terminate(void);
 
 /* Real-time Model object */
-extern RT_MODEL_accsubsystem_1_T *const accsubsystem_1_M;
+extern RT_MODEL_accsubsystem_T *const accsubsystem_M;
 extern volatile boolean_T stopRequested;
 extern volatile boolean_T runModel;
 
@@ -232,43 +232,43 @@ extern volatile boolean_T runModel;
  *
  * Here is the system hierarchy for this model
  *
- * '<Root>' : 'accsubsystem_1'
- * '<S1>'   : 'accsubsystem_1/ACC subsystem'
- * '<S2>'   : 'accsubsystem_1/ACC subsystem/DataTypeConversion_L0'
- * '<S3>'   : 'accsubsystem_1/ACC subsystem/DataTypeConversion_amax'
- * '<S4>'   : 'accsubsystem_1/ACC subsystem/DataTypeConversion_amin'
- * '<S5>'   : 'accsubsystem_1/ACC subsystem/DataTypeConversion_atrack'
- * '<S6>'   : 'accsubsystem_1/ACC subsystem/DataTypeConversion_dmin'
- * '<S7>'   : 'accsubsystem_1/ACC subsystem/DataTypeConversion_optsgn'
- * '<S8>'   : 'accsubsystem_1/ACC subsystem/DataTypeConversion_reldist'
- * '<S9>'   : 'accsubsystem_1/ACC subsystem/DataTypeConversion_vego'
- * '<S10>'  : 'accsubsystem_1/ACC subsystem/DataTypeConversion_vlead'
- * '<S11>'  : 'accsubsystem_1/ACC subsystem/DataTypeConversion_vset'
- * '<S12>'  : 'accsubsystem_1/ACC subsystem/MPC'
- * '<S13>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC'
- * '<S14>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Matrix Signal Check'
- * '<S15>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Matrix Signal Check1'
- * '<S16>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Matrix Signal Check2'
- * '<S17>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Preview Signal Check'
- * '<S18>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Preview Signal Check1'
- * '<S19>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Preview Signal Check2'
- * '<S20>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Preview Signal Check3'
- * '<S21>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Preview Signal Check4'
- * '<S22>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Preview Signal Check5'
- * '<S23>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Preview Signal Check6'
- * '<S24>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Preview Signal Check7'
- * '<S25>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Preview Signal Check8'
- * '<S26>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Scalar Signal Check'
- * '<S27>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Scalar Signal Check1'
- * '<S28>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Scalar Signal Check2'
- * '<S29>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Vector Signal Check'
- * '<S30>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Vector Signal Check1'
- * '<S31>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/MPC Vector Signal Check6'
- * '<S32>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/moorx'
- * '<S33>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/optimizer'
- * '<S34>'  : 'accsubsystem_1/ACC subsystem/MPC/MPC/optimizer/optimizer'
+ * '<Root>' : 'accsubsystem'
+ * '<S1>'   : 'accsubsystem/ACC subsystem'
+ * '<S2>'   : 'accsubsystem/ACC subsystem/DataTypeConversion_L0'
+ * '<S3>'   : 'accsubsystem/ACC subsystem/DataTypeConversion_amax'
+ * '<S4>'   : 'accsubsystem/ACC subsystem/DataTypeConversion_amin'
+ * '<S5>'   : 'accsubsystem/ACC subsystem/DataTypeConversion_atrack'
+ * '<S6>'   : 'accsubsystem/ACC subsystem/DataTypeConversion_dmin'
+ * '<S7>'   : 'accsubsystem/ACC subsystem/DataTypeConversion_optsgn'
+ * '<S8>'   : 'accsubsystem/ACC subsystem/DataTypeConversion_reldist'
+ * '<S9>'   : 'accsubsystem/ACC subsystem/DataTypeConversion_vego'
+ * '<S10>'  : 'accsubsystem/ACC subsystem/DataTypeConversion_vlead'
+ * '<S11>'  : 'accsubsystem/ACC subsystem/DataTypeConversion_vset'
+ * '<S12>'  : 'accsubsystem/ACC subsystem/MPC'
+ * '<S13>'  : 'accsubsystem/ACC subsystem/MPC/MPC'
+ * '<S14>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Matrix Signal Check'
+ * '<S15>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Matrix Signal Check1'
+ * '<S16>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Matrix Signal Check2'
+ * '<S17>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Preview Signal Check'
+ * '<S18>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Preview Signal Check1'
+ * '<S19>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Preview Signal Check2'
+ * '<S20>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Preview Signal Check3'
+ * '<S21>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Preview Signal Check4'
+ * '<S22>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Preview Signal Check5'
+ * '<S23>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Preview Signal Check6'
+ * '<S24>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Preview Signal Check7'
+ * '<S25>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Preview Signal Check8'
+ * '<S26>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Scalar Signal Check'
+ * '<S27>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Scalar Signal Check1'
+ * '<S28>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Scalar Signal Check2'
+ * '<S29>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Vector Signal Check'
+ * '<S30>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Vector Signal Check1'
+ * '<S31>'  : 'accsubsystem/ACC subsystem/MPC/MPC/MPC Vector Signal Check6'
+ * '<S32>'  : 'accsubsystem/ACC subsystem/MPC/MPC/moorx'
+ * '<S33>'  : 'accsubsystem/ACC subsystem/MPC/MPC/optimizer'
+ * '<S34>'  : 'accsubsystem/ACC subsystem/MPC/MPC/optimizer/optimizer'
  */
-#endif                                 /* accsubsystem_1_h_ */
+#endif                                 /* accsubsystem_h_ */
 
 /*
  * File trailer for generated code.

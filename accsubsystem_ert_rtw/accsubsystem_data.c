@@ -3,13 +3,13 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * File: accsubsystem_1_data.c
+ * File: accsubsystem_data.c
  *
- * Code generated for Simulink model 'accsubsystem_1'.
+ * Code generated for Simulink model 'accsubsystem'.
  *
  * Model version                  : 1.0
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Sat Jun 27 22:46:45 2026
+ * C/C++ source code generated on : Sat Jun 27 22:55:04 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-A (64-bit)
@@ -17,10 +17,10 @@
  * Validation result: Not run
  */
 
-#include "accsubsystem_1.h"
+#include "accsubsystem.h"
 
 /* Block parameters (default storage) */
-P_accsubsystem_1_T accsubsystem_1_P = {
+P_accsubsystem_T accsubsystem_P = {
   /* Expression: lastx+xoff
    * Referenced by: '<S13>/last_x'
    */
@@ -31,22 +31,22 @@ P_accsubsystem_1_T accsubsystem_1_P = {
    */
   0.0,
 
-  /* Expression: accsubsystem_1_data.DefaultSpacing
+  /* Expression: accsubsystem_data.DefaultSpacing
    * Referenced by: '<S1>/Default spacing constant'
    */
   0.3,
 
-  /* Expression: accsubsystem_1_data.MinAcceleration
+  /* Expression: accsubsystem_data.MinAcceleration
    * Referenced by: '<S1>/Minimum longitudinal acceleration constant'
    */
   -0.5,
 
-  /* Expression: accsubsystem_1_data.MaxAcceleration
+  /* Expression: accsubsystem_data.MaxAcceleration
    * Referenced by: '<S1>/Maximum longitudinal acceleration constant'
    */
   0.3,
 
-  /* Expression: accsubsystem_1_data.MinVelocity
+  /* Expression: accsubsystem_data.MinVelocity
    * Referenced by: '<S1>/Minimum velocity constant'
    */
   0.0,
@@ -56,7 +56,7 @@ P_accsubsystem_1_T accsubsystem_1_P = {
    */
   0.0,
 
-  /* Expression: accsubsystem_1_data.MaxVelocity
+  /* Expression: accsubsystem_data.MaxVelocity
    * Referenced by: '<S1>/Maximum velocity constant'
    */
   0.351,

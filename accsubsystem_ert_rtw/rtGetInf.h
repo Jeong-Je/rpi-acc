@@ -3,13 +3,13 @@
  * course requirements at degree granting institutions only.  Not for
  * government, commercial, or other organizational use.
  *
- * File: accsubsystem_1_types.h
+ * File: rtGetInf.h
  *
- * Code generated for Simulink model 'accsubsystem_1'.
+ * Code generated for Simulink model 'accsubsystem'.
  *
  * Model version                  : 1.0
  * Simulink Coder version         : 26.1 (R2026a) 20-Nov-2025
- * C/C++ source code generated on : Sat Jun 27 22:46:45 2026
+ * C/C++ source code generated on : Sat Jun 27 22:55:04 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: ARM Compatible->ARM Cortex-A (64-bit)
@@ -17,16 +17,17 @@
  * Validation result: Not run
  */
 
-#ifndef accsubsystem_1_types_h_
-#define accsubsystem_1_types_h_
+#ifndef rtGetInf_h_
+#define rtGetInf_h_
+#include "rt_nonfinite.h"
+#include "rtwtypes.h"
 
-/* Parameters (default storage) */
-typedef struct P_accsubsystem_1_T_ P_accsubsystem_1_T;
+extern real_T rtGetInf(void);
+extern real32_T rtGetInfF(void);
+extern real_T rtGetMinusInf(void);
+extern real32_T rtGetMinusInfF(void);
 
-/* Forward declaration for rtModel */
-typedef struct tag_RTM_accsubsystem_1_T RT_MODEL_accsubsystem_1_T;
-
-#endif                                 /* accsubsystem_1_types_h_ */
+#endif                                 /* rtGetInf_h_ */
 
 /*
  * File trailer for generated code.
